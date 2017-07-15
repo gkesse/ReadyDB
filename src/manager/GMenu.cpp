@@ -29,6 +29,8 @@ void GMenu::createObjects() {
         m_button->setIcon(GPicto::Instance()->getPicto("book"));
         ui->m_menuLayout->addWidget(m_button);
     }
+
+    ui->m_menuLayout->setAlignment(Qt::AlignTop);
 }
 
 void GMenu::createConnexions() {

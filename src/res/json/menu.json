@@ -2,11 +2,9 @@
     "menu":
     [
         {"name":"Create Database"},
-        {"name":"Create Database"},
-        {"name":"Create Database"},
-        {"name":"Create Database"},
-        {"name":"Create Database"},
-        {"name":"Create Database"}
+        {"name":"Open Database"},
+        {"name":"Delete Database"},
+        {"name":"Show Database"}
     ]
 }
         
