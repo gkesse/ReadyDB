@@ -37,6 +37,8 @@ void GOpenDatabase::createObjects() {
     ui->m_dbms->addItems(m_drivers);
     ui->m_dbms->setCurrentText("SQLITE");
     slotDbmsChanged("SQLITE");
+
+    GJson::Instance()->load("OpenDatabase.json", QIODevice::ReadWrite);
 }
 
 void GOpenDatabase::createConnexions() {
@@ -99,17 +101,35 @@ void GOpenDatabase::slotOpenDatabase() {
         return;
     }
     if(ui->m_dbms->currentText() == "SQLITE") {
-        GDatabaseAccess::Instance()->setName(ui->m_name->text());
+        int m_connCount = GJson::Instance()->getValue("conn").toInt();
+        QStringList m_nameMap = GJson::Instance()->getArray("databases", "name");
+
+        if(m_nameMap.contains(ui->m_name->text()) == true) {
+            ui->m_message->showError("ERROR : This database has already been opened.");
+            return;
+        }
+
+        m_connCount++;
+        QString m_conn = QString("conn%1").arg(m_connCount);
+        QVariantMap m_dataMap;
+        m_dataMap.insert("dbms", "SQLITE");
+        m_dataMap.insert("name", ui->m_name->text());
+        m_dataMap.insert("id", m_conn);
+        GJson::Instance()->addArray("databases", m_dataMap);
+        GJson::Instance()->setValue("conn", m_connCount);
+
+        ui->m_message->showMessage("SUCCESS : The operation was successful.");
+
+        /*GDatabaseAccess::Instance()->setName(ui->m_name->text());
         GDatabaseAccess::Instance()->setConnection("conn1");
-        GJson::Instance()->addArray("names", ui->m_name->text());
-        bool m_open = false;
+        /*bool m_open = false;
         //m_open = GDatabaseAccess::Instance()->openDatabase();
         if(m_open == false) {
             ui->m_message->showError("ERROR : The operation failed.");
         }
         else {
             ui->m_message->showMessage("SUCCESS : The operation was successful.");
-        }
+        }*/
         return;
     }
 }

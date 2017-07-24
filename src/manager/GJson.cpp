@@ -1,5 +1,4 @@
 #include "GJson.h"
-#include <QFile>
 
 GJson* GJson::m_instance = 0;
 
@@ -28,10 +27,11 @@ void GJson::createConnexions() {
 
 }
 
-void GJson::load(const QString& filename) {
+void GJson::load(const QString& filename, QIODevice::OpenMode mode) {
     m_filename = filename;
     QFile m_file(m_filename);
-    m_file.open(QIODevice::ReadOnly | QIODevice::Text);
+    mode = mode | QIODevice::Text;
+    m_file.open(mode);
     QString m_dataMap = m_file.readAll();
     m_file.close();
     m_jsonObj = QJsonDocument::fromJson(m_dataMap.toUtf8()).object();
@@ -43,6 +43,31 @@ void GJson::save(const QString& filename, const QJsonDocument::JsonFormat& forma
     m_file.open(QIODevice::WriteOnly | QIODevice::Text);
     m_file.write(QJsonDocument(m_jsonObj).toJson(format));
     m_file.close();
+}
+
+void GJson::setValue(const QString& key, const QVariant& data) {
+    m_jsonObj.insert(key, data.toString());
+    save();
+}
+
+void GJson::addArray(const QString& key, const QVariantMap& data) {
+    QJsonArray m_array = m_jsonObj.value(key).toArray();
+    QJsonObject m_object;
+
+    for(int i = 0; i < data.size(); i++) {
+        QString m_key = data.keys().at(i);
+        QString m_value = data.value(m_key).toString();
+        m_object.insert(m_key, m_value);
+    }
+
+    m_array.push_back(m_object);
+    m_jsonObj.insert(key, m_array);
+    save();
+}
+
+QString GJson::getValue(const QString& key) {
+    QString m_data = m_jsonObj.value(key).toString();
+    return m_data;
 }
 
 GArrayMap GJson::getArray(const QString& key) {
@@ -68,8 +93,16 @@ GArrayMap GJson::getArray(const QString& key) {
     return m_arrayMap;
 }
 
-void GJson::addArray(const QString& key, const QVariant& data) {
-    QJsonArray m_array = m_jsonObj.value(key).toArray();
-    m_array.append(data.toString());
-    save();
+QStringList GJson::getArray(const QString& key1, const QString& key2) {
+    QJsonArray m_array = m_jsonObj.value(key1).toArray();
+    int m_size = m_array.size();
+    QStringList m_dataMap;
+
+    for(int i = 0; i < m_size; i++) {
+        QJsonObject m_object = m_array.at(i).toObject();
+        QString m_data = m_object.value(key2).toString();
+        m_dataMap.push_back(m_data);
+    }
+
+    return m_dataMap;
 }
