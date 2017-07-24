@@ -20,6 +20,13 @@ private:
     void createConnexions();
 
 private:
+    void setFieldVisible(const bool& data);
+
+public slots:
+    void slotDbmsChanged(const QString& data);
+    void slotOpenDatabase();
+
+private:
     Ui::GOpenDatabase* ui;
 };
 

@@ -1,0 +1,7 @@
+{
+    "drivers":
+    [
+        {"name":"SQLITE"},
+        {"name":"MYSQL"}
+    ]
+}

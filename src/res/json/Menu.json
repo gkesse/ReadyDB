@@ -1,0 +1,8 @@
+{
+    "menu":
+    [
+        {"name":"Show Drivers"},
+        {"name":"Open Database"},
+        {"name":"Create Database"}
+    ]
+}

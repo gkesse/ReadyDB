@@ -35,8 +35,8 @@
       <number>0</number>
      </property>
      <widget class="GShowDrivers" name="m_showDrivers"/>
-     <widget class="GCreateDatabase" name="m_createDatabase"/>
      <widget class="GOpenDatabase" name="m_openDatabase"/>
+     <widget class="GCreateDatabase" name="m_createDatabase"/>
     </widget>
    </item>
   </layout>

@@ -5,4 +5,8 @@
     <qresource prefix="/img">
         <file alias="splash.png">res/img/splash.png</file>
     </qresource>
+    <qresource prefix="/json">
+        <file alias="Menu.json">res/json/Menu.json</file>
+        <file alias="OpenDatabase.json">res/json/OpenDatabase.json</file>
+    </qresource>
 </RCC>

@@ -19,9 +19,6 @@ private:
     void createObjects();
     void createConnexions();
 
-public slots:
-    void slotCreateClicked();
-
 private:
     Ui::GShowDrivers* ui;
 };

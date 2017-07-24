@@ -6,25 +6,25 @@
 class GDatabaseAccess : public QObject {
     Q_OBJECT
 
-private:
-    GDatabaseAccess();
-
 public:
-    ~GDatabaseAccess();
+    GDatabaseAccess();
+    virtual ~GDatabaseAccess();
 
 public:
     static GDatabaseAccess* Instance();
-    
-private:
-    void createObjects();
-    void createConnexions();
-    
-public:
-    QStringList getDrivers() const;
-    void run();
 
-private:
-    static GDatabaseAccess* m_instance;
+public:
+    void setName(const QString& name);
+    void setConnection(const QString& conn);
+    QStringList getDrivers() const;
+
+public:
+    virtual bool openDatabase() = 0;
+    virtual void createDatabase() = 0;
+
+protected:
+    QString m_name;
+    QString m_conn;
 };
 
 #endif

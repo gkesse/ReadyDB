@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>101</width>
-    <height>123</height>
+    <width>239</width>
+    <height>254</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -29,43 +29,51 @@
    <property name="spacing">
     <number>0</number>
    </property>
-   <item row="2" column="0">
+   <item row="2" column="0" colspan="2">
     <widget class="QWidget" name="m_body" native="true">
      <property name="minimumSize">
       <size>
        <width>0</width>
-       <height>100</height>
+       <height>0</height>
       </size>
      </property>
-     <layout class="QGridLayout" name="gridLayout_2">
-      <item row="3" column="0">
+     <layout class="QGridLayout" name="gridLayout_2" rowstretch="0,0,0,0,0,0,0,0,0,1">
+      <item row="9" column="0">
        <spacer name="verticalSpacer">
         <property name="orientation">
          <enum>Qt::Vertical</enum>
         </property>
         <property name="sizeHint" stdset="0">
          <size>
-          <width>78</width>
+          <width>20</width>
           <height>0</height>
          </size>
         </property>
        </spacer>
       </item>
-      <item row="2" column="0">
-       <widget class="QFrame" name="frame">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>0</height>
-         </size>
+      <item row="6" column="0">
+       <widget class="GMessage" name="m_message" native="true"/>
+      </item>
+      <item row="7" column="0">
+       <layout class="QHBoxLayout" name="m_buttonLayout">
+        <property name="bottomMargin">
+         <number>0</number>
         </property>
-        <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
-        </property>
-        <property name="frameShadow">
-         <enum>QFrame::Raised</enum>
-        </property>
-        <layout class="QGridLayout" name="gridLayout_3">
+        <item>
+         <widget class="QPushButton" name="m_open">
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="text">
+           <string>Open</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="0" column="0">
+       <widget class="QWidget" name="m_dbmsWidget" native="true">
+        <layout class="QHBoxLayout" name="m_dbmsLayout" stretch="0,1">
          <property name="leftMargin">
           <number>0</number>
          </property>
@@ -78,38 +86,361 @@
          <property name="bottomMargin">
           <number>0</number>
          </property>
-         <item row="0" column="0">
-          <widget class="QPushButton" name="m_open">
-           <property name="cursor">
-            <cursorShape>PointingHandCursor</cursorShape>
-           </property>
+         <item>
+          <widget class="QLabel" name="m_dbmsLAbel">
            <property name="text">
-            <string>Open</string>
+            <string>DBMS :</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
            </property>
           </widget>
          </item>
-         <item row="0" column="1">
-          <spacer name="horizontalSpacer">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>0</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
+         <item>
+          <widget class="QComboBox" name="m_dbms"/>
          </item>
         </layout>
-        <zorder>m_open</zorder>
-        <zorder>horizontalSpacer</zorder>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QWidget" name="m_usernameWidget" native="true">
+        <layout class="QHBoxLayout" name="m_usernameLayout">
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="m_usernameLabel">
+           <property name="text">
+            <string>Username :</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QFrame" name="m_usernameFrame">
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_5">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QToolButton" name="m_usernameIcon">
+              <property name="text">
+               <string>...</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="m_username"/>
+            </item>
+           </layout>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QWidget" name="m_hostnameWidget" native="true">
+        <layout class="QHBoxLayout" name="m_hostnameLayout">
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="m_hostnameLabel">
+           <property name="text">
+            <string>Hostname :</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QFrame" name="m_hostnameFrame">
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QToolButton" name="m_hostnameIcon">
+              <property name="text">
+               <string>...</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="m_hostname"/>
+            </item>
+           </layout>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QWidget" name="m_nameWidget" native="true">
+        <layout class="QHBoxLayout" name="m_nameLayout">
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="m_nameLabel">
+           <property name="text">
+            <string>Name :</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QFrame" name="frame">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QToolButton" name="m_nameIcon">
+              <property name="text">
+               <string>...</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="m_name"/>
+            </item>
+           </layout>
+           <zorder>m_name</zorder>
+           <zorder>m_name</zorder>
+           <zorder>m_nameIcon</zorder>
+           <zorder>m_name</zorder>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QWidget" name="m_portWidget" native="true">
+        <layout class="QHBoxLayout" name="m_portLayout">
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="m_portLabel">
+           <property name="text">
+            <string>Port :</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QFrame" name="m_portFrame">
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_4">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QToolButton" name="m_portIcon">
+              <property name="text">
+               <string>...</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="m_port"/>
+            </item>
+           </layout>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QWidget" name="m_passwordWidget" native="true">
+        <layout class="QHBoxLayout" name="m_passwordLayout">
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="m_passwordLabel">
+           <property name="text">
+            <string>Password :</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QFrame" name="m_passwordFrame">
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_6">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QToolButton" name="m_passwordIcon">
+              <property name="text">
+               <string>...</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="m_password"/>
+            </item>
+           </layout>
+          </widget>
+         </item>
+        </layout>
        </widget>
       </item>
      </layout>
     </widget>
    </item>
-   <item row="1" column="0">
+   <item row="1" column="0" colspan="2">
     <widget class="QPushButton" name="m_title">
      <property name="cursor">
       <cursorShape>PointingHandCursor</cursorShape>
@@ -121,6 +452,14 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>GMessage</class>
+   <extends>QWidget</extends>
+   <header>GMessage.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

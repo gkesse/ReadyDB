@@ -1,6 +1,5 @@
 #include "GMessageView.h"
 #include "ui_GMessageView.h"
-#include "GSplashScreen.h"
 #include "GPicto.h"
 #include <QApplication>
 #include <QDesktopWidget>

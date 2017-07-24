@@ -18,17 +18,15 @@ GShowDrivers::~GShowDrivers() {
 }
 
 void GShowDrivers::createObjects() {
-    ui->m_title->setIcon(GPicto::Instance()->getPicto(fa::cogs));
+    ui->m_title->setIcon(GPicto::Instance()->getPicto(fa::book));
 
     QStringList m_drivers = GDatabaseAccess::Instance()->getDrivers();
     QStringListModel* m_model = new QStringListModel(this);
     m_model->setStringList(m_drivers);
     ui->m_listView->setModel(m_model);
+    ui->m_listView->setEditTriggers(QAbstractItemView::NoEditTriggers);
 }
 
 void GShowDrivers::createConnexions() {
-}
 
-void GShowDrivers::slotCreateClicked() {
-    GDatabaseAccess::Instance()->run();
 }

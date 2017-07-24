@@ -20,7 +20,7 @@ private:
     void createConnexions();
 
 public slots:
-    void slotCreateClicked();
+    void slotCreateDatabse();
 
 private:
     Ui::GCreateDatabase* ui;

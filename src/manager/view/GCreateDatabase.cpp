@@ -17,14 +17,14 @@ GCreateDatabase::~GCreateDatabase() {
 }
 
 void GCreateDatabase::createObjects() {
-    ui->m_title->setIcon(GPicto::Instance()->getPicto(fa::cog));
-    ui->m_create->setIcon(GPicto::Instance()->getPicto(fa::plus));
+    ui->m_title->setIcon(GPicto::Instance()->getPicto(fa::book));
+    ui->m_create->setIcon(GPicto::Instance()->getPicto(fa::check));
 }
 
 void GCreateDatabase::createConnexions() {
-    connect(ui->m_create, SIGNAL(clicked()), this, SLOT(slotCreateClicked()));
+    connect(ui->m_create, SIGNAL(clicked()), this, SLOT(slotCreateDatabse()));
 }
 
-void GCreateDatabase::slotCreateClicked() {
-    GDatabaseAccess::Instance()->run();
+void GCreateDatabase::slotCreateDatabse() {
+    GDatabaseAccess::Instance()->createDatabase();
 }

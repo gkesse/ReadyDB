@@ -19,11 +19,35 @@ QWidget {
 /*===============================================*/
 
 /*-----------------------------------------------*/
+/* QComboBox */
+/*-----------------------------------------------*/
+
+QComboBox {
+    background: rgba(255,255,250,0.2);
+    border : 1px solid rgba(255,255,255,0.2);
+    padding: 2px;
+}
+
+QComboBox QAbstractItemView {
+    background: #373f60;
+    selection-background-color: #505774;
+}
+
+QComboBox:item:hover {
+    background: red;
+}
+
+/*-----------------------------------------------*/
 /* QFrame */
 /*-----------------------------------------------*/
 
-QFrame#m_content {
+QFrame#m_content,
+GOpenDatabase QFrame {
     border : 1px solid rgba(255,255,255,0.2);
+}
+
+QFrame#m_message {
+    border : none;
 }
 
 /*-----------------------------------------------*/
@@ -40,12 +64,46 @@ QHeaderView::section {
 }
 
 /*-----------------------------------------------*/
+/* QLabel */
+/*-----------------------------------------------*/
+
+GOpenDatabase QLabel {
+    background: rgba(255,255,250,0.2);
+    border: none;
+    padding: 0px 6px;
+    min-width: 100px;
+}
+
+GMessage QLabel#m_message {
+    background: none;
+    padding: 0px;
+}
+
+/*-----------------------------------------------*/
+/* QLineEdit */
+/*-----------------------------------------------*/
+
+QLineEdit {
+    border: 1px solid rgba(255,255,250,0.2);
+    padding: 2px;
+}
+
+GOpenDatabase QLineEdit {
+    border: none;
+    padding: 2px;
+}
+
+/*-----------------------------------------------*/
 /* QListView */
 /*-----------------------------------------------*/
 
 QListView {
     background: rgba(255,255,250,0.2);
-    padding: 9px;
+    padding: 2px;
+}
+
+QListView::item:hover {
+    background: rgba(255,255,250,0.3);
 }
 
 /*-----------------------------------------------*/
@@ -147,6 +205,14 @@ QTextEdit {
     background: rgba(255,255,255,0.2);
     border: 1px solid rgba(255,255,255,0.2);
     padding: 9px;
+}
+
+/*-----------------------------------------------*/
+/* QToolButton */
+/*-----------------------------------------------*/
+
+QToolButton {
+
 }
 
 /*-----------------------------------------------*/
